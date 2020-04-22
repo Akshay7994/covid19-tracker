@@ -7,6 +7,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import { Global, IndiaSpecific } from "../../components";
+import styles from "./tabs.module.css";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -54,8 +55,6 @@ const ScrollableCovidTrackerTabs = props => {
     setValue(newValue);
   };
 
-  console.log(props);
-
   return (
     <div className={classes.root}>
       <AppBar position="static" color="default">
@@ -73,7 +72,7 @@ const ScrollableCovidTrackerTabs = props => {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <h2>Global Report</h2>
+        <h2 className={styles.globalText}>Global Report</h2>
         <Global caseData={props.globalData} />
       </TabPanel>
       <TabPanel value={value} index={1}>

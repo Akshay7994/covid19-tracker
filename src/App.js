@@ -5,14 +5,12 @@ import styles from "./App.module.css";
 import { fetchHigherLevelData } from "./apiservices";
 
 class App extends React.Component {
-  state = {
-    globalData: {}
-  };
+  state = {};
 
-  async componentDidMount() {
-    const highlevelData = await fetchHigherLevelData();
-    this.setState({ globalData: highlevelData });
-  }
+  // async componentDidMount() {
+  //   const highlevelData = await fetchHigherLevelData();
+  //   this.setState({ globalData: highlevelData });
+  // }
 
   render() {
     return (
@@ -21,7 +19,7 @@ class App extends React.Component {
           <ButtonAppBar />
         </div>
         <div className={styles.container}>
-          <ScrollableCovidTrackerTabs globalData={this.state.globalData} />
+          <ScrollableCovidTrackerTabs />
         </div>
       </div>
     );

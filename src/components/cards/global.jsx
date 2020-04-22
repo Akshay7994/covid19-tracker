@@ -1,30 +1,53 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import SpacingGrid from "../grid/grid";
 import styles from "./global.module.css";
-import { Charts } from "../../components";
+import { Charts, Countries } from "../../components";
+import {
+  fetchHigherLevelData,
+  fetchCountryLevelData
+} from "../../apiservices/";
 const Global = props => {
-  const { confirmed, deaths, recovered, lastUpdate } = props.caseData;
+  //const { confirmed, deaths, recovered, lastUpdate } = props.caseData;
+
+  const [highLvlData, sethighLvlData] = useState({});
+
+  const [country, setCountry] = useState("");
+
+  useEffect(() => {
+    const fetchhighlevelData = async () => {
+      sethighLvlData(await fetchHigherLevelData());
+    };
+    fetchhighlevelData();
+    console.log(highLvlData);
+  }, []);
+
+  const handleCountryChange = async country => {
+    setCountry(country);
+    sethighLvlData(await fetchCountryLevelData(country));
+  };
 
   return (
-    <div>
-      <div className={styles.container}>
+    <div className={styles.globalcontainer}>
+      <div className={styles.gridcontainer}>
         <SpacingGrid
           gridTitle={"Confirmed"}
-          value={confirmed ? confirmed.value : 0}
-          lastUpdate={lastUpdate}
+          value={highLvlData.confirmed ? highLvlData.confirmed.value : 0}
+          lastUpdate={highLvlData.lastUpdate}
         />
         <SpacingGrid
           gridTitle={"Recoveries"}
-          value={recovered ? recovered.value : 0}
-          lastUpdate={lastUpdate}
+          value={highLvlData.recovered ? highLvlData.recovered.value : 0}
+          lastUpdate={highLvlData.lastUpdate}
         />
         <SpacingGrid
           gridTitle={"Deaths"}
-          value={deaths ? deaths.value : 0}
-          lastUpdate={lastUpdate}
+          value={highLvlData.deaths ? highLvlData.deaths.value : 0}
+          lastUpdate={highLvlData.lastUpdate}
         />
       </div>
-      <Charts />
+      <Countries handleCountryChange={handleCountryChange} />
+
+      <Charts data={highLvlData} country={country} />
     </div>
   );
 };

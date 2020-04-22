@@ -24,3 +24,23 @@ export const fetchDailyData = async () => {
     return modifiedData;
   } catch (error) {}
 };
+
+export const fetchCountries = async () => {
+  try {
+    const {
+      data: { countries }
+    } = await axios.get(baseUrl + "/countries");
+
+    return countries.map(country => country.name);
+  } catch (error) {}
+};
+
+export const fetchCountryLevelData = async country => {
+  try {
+    const {
+      data: { confirmed, recovered, deaths, lastUpdate }
+    } = await axios.get(baseUrl + "/countries/" + country);
+
+    return { confirmed, recovered, deaths, lastUpdate };
+  } catch (error) {}
+};

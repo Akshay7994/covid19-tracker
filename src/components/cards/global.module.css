@@ -1,3 +1,29 @@
-.container {
+.gridcontainer {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 50px 0;
+  width: 80%;
+}
+
+.globalcontainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.image {
+  width: 370px;
+  margin-top: 50px;
+}
+
+@media only screen and (max-width: 770px) {
+  .globalcontainer {
+    margin: 0 10%;
+    width: 80%;
+  }
+
+  .image {
+    width: 100%;
+  }
 }
