@@ -55,6 +55,7 @@ const CountryWiseTable = () => {
             <StyledTableCell align="right">Total Confirmed</StyledTableCell>
             <StyledTableCell align="right">Total Recovered</StyledTableCell>
             <StyledTableCell align="right">Total Deaths</StyledTableCell>
+            <StyledTableCell align="right">Active Cases</StyledTableCell>
             <StyledTableCell align="right">New Cases Today</StyledTableCell>
             <StyledTableCell align="right">
               New Recoveries Today
@@ -76,6 +77,9 @@ const CountryWiseTable = () => {
               </StyledTableCell>
               <StyledTableCell align="right">
                 {countrywise.TotalDeaths}
+              </StyledTableCell>
+              <StyledTableCell align="right">
+                {countrywise.TotalConfirmed - countrywise.TotalRecovered}
               </StyledTableCell>
               <StyledTableCell align="right">
                 {countrywise.NewConfirmed}
