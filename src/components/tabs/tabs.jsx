@@ -6,7 +6,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import { Global, IndiaSpecific } from "../../components";
+import { Global, CountryWiseTable } from "../../components";
 import styles from "./tabs.module.css";
 
 function TabPanel(props) {
@@ -68,7 +68,7 @@ const ScrollableCovidTrackerTabs = props => {
           aria-label="scrollable auto tabs example"
         >
           <Tab label="Global Report" {...a11yProps(0)} />
-          {/* <Tab label="India Specific Report" {...a11yProps(1)} /> */}
+          <Tab label="Country Wise Data" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
@@ -76,8 +76,8 @@ const ScrollableCovidTrackerTabs = props => {
         <Global caseData={props.globalData} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <h2>India Specific Report</h2>
-        <IndiaSpecific />
+        <h2 className={styles.globalText}>Country Wise Data</h2>
+        <CountryWiseTable />
       </TabPanel>
     </div>
   );

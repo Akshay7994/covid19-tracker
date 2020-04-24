@@ -2,6 +2,8 @@ import axios from "axios";
 
 const baseUrl = "https://covid19.mathdro.id/api";
 
+const baseURL1 = "https://api.covid19api.com";
+
 export const fetchHigherLevelData = async () => {
   try {
     const {
@@ -42,5 +44,18 @@ export const fetchCountryLevelData = async country => {
     } = await axios.get(baseUrl + "/countries/" + country);
 
     return { confirmed, recovered, deaths, lastUpdate };
+  } catch (error) {}
+};
+
+export const fetchCountryWiseCoronaCasesData = async () => {
+  try {
+    const {
+      data: { Countries }
+    } = await axios.get(baseURL1 + "/summary");
+    const modifiedData = Countries.sort((a, b) =>
+      a.TotalConfirmed < b.TotalConfirmed ? 1 : -1
+    );
+    debugger;
+    return modifiedData;
   } catch (error) {}
 };
