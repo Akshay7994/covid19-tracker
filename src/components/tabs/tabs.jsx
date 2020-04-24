@@ -68,7 +68,7 @@ const ScrollableCovidTrackerTabs = props => {
           aria-label="scrollable auto tabs example"
         >
           <Tab label="Global Report" {...a11yProps(0)} />
-          <Tab label="India Specific Report" {...a11yProps(1)} />
+          {/* <Tab label="India Specific Report" {...a11yProps(1)} /> */}
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>

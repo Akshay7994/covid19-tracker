@@ -22,8 +22,14 @@ const Global = props => {
   }, []);
 
   const handleCountryChange = async country => {
-    setCountry(country);
-    sethighLvlData(await fetchCountryLevelData(country));
+    console.log(country);
+    if (country != "global") {
+      setCountry(country);
+      sethighLvlData(await fetchCountryLevelData(country));
+    } else {
+      setCountry("");
+      sethighLvlData(await fetchHigherLevelData());
+    }
   };
 
   return (
