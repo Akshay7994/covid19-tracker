@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "covid19tracker-b7c8c",
+    "covid19tracker": "covid19tracker-b7c8c"
+  }
+}
