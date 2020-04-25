@@ -55,7 +55,6 @@ export const fetchCountryWiseCoronaCasesData = async () => {
     const modifiedData = Countries.sort((a, b) =>
       a.TotalConfirmed < b.TotalConfirmed ? 1 : -1
     );
-    debugger;
     return modifiedData;
   } catch (error) {}
 };
