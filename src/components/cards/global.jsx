@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SpacingGrid from "../grid/grid";
 import styles from "./global.module.css";
+import Grid from "@material-ui/core/Grid";
 import { Charts, Countries } from "../../components";
 import {
   fetchHigherLevelData,
@@ -33,8 +34,10 @@ const Global = props => {
   };
 
   return (
+    <div>
     <div className={styles.globalcontainer}>
       <div className={styles.gridcontainer}>
+    <Grid container spacing={0} justify="center" direction="row">
         <SpacingGrid
           gridTitle={"Confirmed"}
           value={highLvlData.confirmed ? highLvlData.confirmed.value : 0}
@@ -50,10 +53,12 @@ const Global = props => {
           value={highLvlData.deaths ? highLvlData.deaths.value : 0}
           lastUpdate={highLvlData.lastUpdate}
         />
+      </Grid>
       </div>
       <Countries handleCountryChange={handleCountryChange} />
+    </div>
 
-      <Charts data={highLvlData} country={country} />
+    <Charts data={highLvlData} country={country} />
     </div>
   );
 };
