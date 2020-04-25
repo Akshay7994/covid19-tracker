@@ -18,11 +18,11 @@ const SpacingGrid = props => {
     return "loading...";
   }
   return (
-    <Grid container spacing={0} justify="center">
       <Grid
-        xs={12}
-        md={12}
-        item
+      xs = {12}
+      md = "auto"
+      sm = "auto"
+      lg = "auto"
         component={Card}
         className={cx(
           styles.card,
@@ -52,7 +52,6 @@ const SpacingGrid = props => {
           </Typography>
         </CardContent>
       </Grid>
-    </Grid>
   );
 };
 

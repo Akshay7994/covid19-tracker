@@ -57,7 +57,7 @@ const ScrollableCovidTrackerTabs = props => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="default">
+      <AppBar position="relative" color="default">
         <Tabs
           value={value}
           onChange={handleChange}

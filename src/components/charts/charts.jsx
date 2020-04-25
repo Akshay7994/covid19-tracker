@@ -36,6 +36,10 @@ const Charts = props => {
             }
           ]
         }}
+         options= {{
+          responsive: true,
+          maintainAspectRatio: true
+        }}
       />
     ) : null;
 
@@ -60,6 +64,8 @@ const Charts = props => {
         ]
       }}
       options={{
+        responsive: true,
+        maintainAspectRatio: true,
         legend: { display: false },
         title: { display: true, text: "Current state in " + country }
       }}
@@ -67,7 +73,7 @@ const Charts = props => {
   ) : null;
 
   return (
-    <div className={styles.container}>{country ? barChart : lineChart}</div>
+    <div >{country ? barChart : lineChart}</div>
   );
 };
 

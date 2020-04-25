@@ -17,7 +17,7 @@
   margin-top: 50px;
 }
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 870px) {
   .globalcontainer {
     margin: 0 10%;
     width: 80%;
